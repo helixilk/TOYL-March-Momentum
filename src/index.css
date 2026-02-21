@@ -5,10 +5,13 @@
   --font-serif: "Playfair Display", serif;
   --color-viridian: #007F5F;
   --color-viridian-dark: #004B3E;
+  --color-viridian-light: #F1F7F5;
+  --color-viridian-soft: #F8FAF9;
+  --color-viridian-accent: #E6F2ED;
 }
 
 body {
-  @apply bg-[#F8FAF9] text-[#2D3436] font-sans;
+  @apply bg-viridian-soft text-[#2D3436] font-sans;
   scroll-behavior: smooth;
 }
 

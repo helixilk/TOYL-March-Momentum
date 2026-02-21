@@ -1,13 +1,68 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Check, ArrowRight, Play, Calendar, Clock, Users, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Check, ArrowRight, Play, Calendar, Clock, Users } from 'lucide-react';
 import Button from './components/Button';
 import SectionHeading from './components/SectionHeading';
 import DailyIntention from './components/DailyIntention';
+import FAQ from './components/FAQ';
+import LegalModal from './components/LegalModal';
 import { STRIPE_PLACEHOLDER_URL } from './constants';
 
 const App: React.FC = () => {
+  const [isTermsOpen, setIsTermsOpen] = React.useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = React.useState(false);
+
+  const termsContent = (
+    <>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">1. Health & Safety Disclaimer</h3>
+        <p>By participating in TOYL Yoga's March Momentum, you acknowledge that yoga and physical exercise involve inherent risks. You should consult with a physician before starting any new fitness program. You agree to participate at your own risk and represent that you are in good physical condition to do so. This program is for informational purposes and is not medical advice.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">2. Program Access</h3>
+        <p>"Lifetime Access" refers to the duration that the TOYL Yoga platform remains operational. The March Momentum challenge follows a weekday-only schedule (Monday-Friday) from March 2nd to March 27th. While we strive for 100% uptime, we are not responsible for temporary technical interruptions.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">3. Refund Policy</h3>
+        <p>Due to the immediate access to digital content and the low-cost nature of this program ($27 CAN), all sales are final. No refunds will be issued once the transaction is complete.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">4. Intellectual Property</h3>
+        <p>All videos, guides, and materials provided are the exclusive property of TOYL Yoga. Your purchase grants you a personal, non-transferable license. Redistribution, reselling, or public broadcasting of this content is strictly prohibited.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">5. Limitation of Liability</h3>
+        <p>TOYL Yoga and its instructors shall not be liable for any injuries, damages, or losses resulting from your participation in the program or your inability to access the digital platform.</p>
+      </section>
+    </>
+  );
+
+  const privacyContent = (
+    <>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">1. Data Collection</h3>
+        <p>We collect your name and email address solely for the purpose of delivering the March Momentum program, providing access to our member portal, and processing your registration.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">2. Payment Processing</h3>
+        <p>All payments are handled securely through Stripe. TOYL Yoga does not store, see, or have access to your full credit card information or sensitive financial data on our servers.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">3. Communication</h3>
+        <p>By registering, you agree to receive program-related emails, including daily links and updates. You may opt-out of marketing communications at any time via the "unsubscribe" link in our emails.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">4. Third-Party Services</h3>
+        <p>We share necessary data with trusted third-party providers (like Stripe for payments and our email service provider) only to the extent required to operate the program. We never sell your data to third parties.</p>
+      </section>
+      <section className="space-y-3">
+        <h3 className="font-bold text-viridian-dark">5. Cookies</h3>
+        <p>We use essential cookies to manage your login sessions and ensure the member portal functions correctly. These are required for the basic operation of our service.</p>
+      </section>
+    </>
+  );
+
   return (
     <div className="min-h-screen">
       {/* Navigation */}
@@ -32,7 +87,7 @@ const App: React.FC = () => {
 
       {/* Hero Section */}
       <header className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#F1F7F5] -z-10 rounded-bl-[200px] hidden lg:block"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-viridian-light -z-10 rounded-bl-[200px] hidden lg:block"></div>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +106,7 @@ const App: React.FC = () => {
               Unlock consistency and mobility with our 20-day, 20-minute daily practice. Designed for weekdays, built for real life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href={STRIPE_PLACEHOLDER_URL} className="text-lg flex items-center justify-center gap-2">
+              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-lg flex items-center justify-center gap-2">
                 JOIN NOW — $27 CAN <ArrowRight className="w-5 h-5" />
               </Button>
               <Button href="#how-it-works" variant="outline" className="text-lg">Learn More</Button>
@@ -113,7 +168,7 @@ const App: React.FC = () => {
       </header>
 
       {/* How it Works Section */}
-      <section id="how-it-works" className="py-24 bg-[#F8FAF9]">
+      <section id="how-it-works" className="py-24 bg-viridian-soft">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading 
             title="The 20-20 Blueprint" 
@@ -219,62 +274,77 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq-section" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <SectionHeading title="Frequently Asked Questions" subtitle="Everything you need to know about the March Momentum challenge." />
+          <FAQ />
+        </div>
+      </section>
+
       {/* Final CTA Section */}
-      <section className="py-24 text-center">
+      <section className="py-24 text-center bg-viridian-accent/30">
         <div className="max-w-4xl mx-auto px-6 space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif text-viridian-dark">Ready to start your <br /><span className="italic text-viridian">March Momentum?</span></h2>
           <p className="text-xl text-[#576574] leading-relaxed">
             The program starts on March 2nd. Don't let another month pass without prioritizing your mobility. Join us for just $27 CAN.
           </p>
           <div className="flex flex-col items-center gap-6">
-            <Button href={STRIPE_PLACEHOLDER_URL} className="text-2xl px-12 py-6">SECURE MY SPOT — $27</Button>
+            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-2xl px-12 py-6">SECURE MY SPOT — $27</Button>
             <p className="text-sm text-[#576574] font-medium italic">Weekday classes • March 2nd to 27th • Livestream & On-Demand</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-viridian-dark text-white py-20">
+      <footer className="bg-viridian-dark text-white py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-1 md:col-span-2 space-y-6">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-white rounded-full"></div>
-                <span className="font-serif font-bold text-2xl tracking-tight">TOYL YOGA</span>
+          <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
+            <div className="max-w-xl space-y-8">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-viridian-dark rounded-full"></div>
+                </div>
+                <span className="font-serif font-bold text-3xl tracking-tight">TOYL YOGA</span>
               </div>
-              <p className="text-white/60 max-w-sm">
-                Time Of Your Life Yoga. Dedicated to helping you incorporate movement into your everyday life through accessible, premium mobility practices.
+              <p className="text-white/60 text-lg leading-relaxed">
+                Time Of Your Life Yoga. Dedicated to helping you incorporate movement into your everyday life through accessible, premium mobility practices. We believe consistency is the bridge between where you are and where you want to be.
               </p>
-              <div className="flex gap-4">
-                <Instagram className="w-5 h-5 text-white/60 hover:text-white cursor-pointer transition-colors" />
-                <Twitter className="w-5 h-5 text-white/60 hover:text-white cursor-pointer transition-colors" />
-                <Facebook className="w-5 h-5 text-white/60 hover:text-white cursor-pointer transition-colors" />
+            </div>
+            <div className="flex flex-col gap-8">
+              <div>
+                <h4 className="font-bold mb-6 text-xs uppercase tracking-[0.2em] text-white/40">Program</h4>
+                <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-12 gap-y-4 text-white/70 text-sm">
+                  <li><a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a></li>
+                  <li><a href="#benefits" className="hover:text-white transition-colors">Benefits</a></li>
+                  <li><a href="#about" className="hover:text-white transition-colors">About TOYL</a></li>
+                  <li><a href="#faq-section" className="hover:text-white transition-colors">FAQ</a></li>
+                </ul>
               </div>
-            </div>
-            <div>
-              <h4 className="font-bold mb-6">Program</h4>
-              <ul className="space-y-4 text-white/60 text-sm">
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a></li>
-                <li><a href="#benefits" className="hover:text-white transition-colors">Benefits</a></li>
-                <li><a href="#about" className="hover:text-white transition-colors">About TOYL</a></li>
-                <li><a href={STRIPE_PLACEHOLDER_URL} className="hover:text-white transition-colors">Pricing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-6">Support</h4>
-              <ul className="space-y-4 text-white/60 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-white/10 text-center text-white/40 text-xs">
-            © {new Date().getFullYear()} TOYL YOGA. All rights reserved.
+          <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 text-xs">
+            <p>© {new Date().getFullYear()} TOYL YOGA. All rights reserved.</p>
+            <div className="flex gap-8">
+              <button onClick={() => setIsTermsOpen(true)} className="hover:text-white transition-colors cursor-pointer">Terms</button>
+              <button onClick={() => setIsPrivacyOpen(true)} className="hover:text-white transition-colors cursor-pointer">Privacy</button>
+            </div>
           </div>
         </div>
       </footer>
+
+      <LegalModal 
+        isOpen={isTermsOpen} 
+        onClose={() => setIsTermsOpen(false)} 
+        title="Terms of Service" 
+        content={termsContent} 
+      />
+      <LegalModal 
+        isOpen={isPrivacyOpen} 
+        onClose={() => setIsPrivacyOpen(false)} 
+        title="Privacy Policy" 
+        content={privacyContent} 
+      />
     </div>
   );
 };

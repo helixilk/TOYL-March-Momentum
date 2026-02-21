@@ -4,7 +4,7 @@ import { STRIPE_PLACEHOLDER_URL } from '../constants';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'outline' | 'ghost' | 'gradient';
   className?: string;
   onClick?: () => void;
   href?: string;
@@ -22,7 +22,8 @@ const Button: React.FC<ButtonProps> = ({
   const variants = {
     primary: "bg-viridian text-white hover:bg-viridian-dark shadow-lg shadow-viridian/20",
     outline: "border-2 border-viridian text-viridian hover:bg-viridian hover:text-white",
-    ghost: "text-viridian hover:bg-[#F1F7F5]"
+    ghost: "text-viridian hover:bg-viridian-light",
+    gradient: "viridian-gradient text-white hover:opacity-90 shadow-lg shadow-viridian/30"
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
