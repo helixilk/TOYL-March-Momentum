@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-viridian: #007F5F;
+  --color-viridian-dark: #004B3E;
+}
+
+body {
+  @apply bg-[#F8FAF9] text-[#2D3436] font-sans;
+  scroll-behavior: smooth;
+}
+
+.viridian-gradient {
+  background: linear-gradient(135deg, #007F5F 0%, #004B3E 100%);
+}

@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 export interface Benefit {
   title: string;
   description: string;

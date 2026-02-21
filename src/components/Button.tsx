@@ -20,9 +20,9 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles = "px-8 py-4 rounded-full font-semibold transition-all duration-300 transform active:scale-95 text-center inline-block";
   
   const variants = {
-    primary: "bg-[#007F5F] text-white hover:bg-[#004B3E] shadow-lg shadow-[#007F5F]/20",
-    outline: "border-2 border-[#007F5F] text-[#007F5F] hover:bg-[#007F5F] hover:text-white",
-    ghost: "text-[#007F5F] hover:bg-[#F1F7F5]"
+    primary: "bg-viridian text-white hover:bg-viridian-dark shadow-lg shadow-viridian/20",
+    outline: "border-2 border-viridian text-viridian hover:bg-viridian hover:text-white",
+    ghost: "text-viridian hover:bg-[#F1F7F5]"
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
