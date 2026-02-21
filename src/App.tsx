@@ -9,6 +9,8 @@ import FAQ from './components/FAQ';
 import LegalModal from './components/LegalModal';
 import { STRIPE_PLACEHOLDER_URL } from './constants';
 
+const LOGO_URL = "https://drive.google.com/thumbnail?id=13-VlkdL0_w7pGVJ186Orh_FoUCBtezos&sz=w1000";
+
 const App: React.FC = () => {
   const [isTermsOpen, setIsTermsOpen] = React.useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = React.useState(false);
@@ -71,9 +73,9 @@ const App: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-viridian rounded-full"></div>
+            <img src={LOGO_URL} alt="TOYL Yoga Logo" className="w-12 h-12 object-contain" referrerPolicy="no-referrer" />
             <span className="font-serif font-bold text-xl tracking-tight text-viridian-dark">TOYL YOGA</span>
           </motion.div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-viridian-dark/80">
@@ -106,10 +108,10 @@ const App: React.FC = () => {
               Unlock consistency and mobility with our 20-day, 20-minute daily practice. Designed for weekdays, built for real life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-lg flex items-center justify-center gap-2">
-                JOIN NOW — $27 CAN <ArrowRight className="w-5 h-5" />
+              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap">
+                <span>JOIN NOW — $27 CAN</span>
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </Button>
-              <Button href="#how-it-works" variant="outline" className="text-lg">Learn More</Button>
             </div>
             <div className="flex items-center gap-6 pt-4 text-sm text-[#576574]">
               <div className="flex -space-x-2">
@@ -290,7 +292,7 @@ const App: React.FC = () => {
             The program starts on March 2nd. Don't let another month pass without prioritizing your mobility. Join us for just $27 CAN.
           </p>
           <div className="flex flex-col items-center gap-6">
-            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-2xl px-12 py-6">SECURE MY SPOT — $27</Button>
+            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap">SECURE MY SPOT — $27</Button>
             <p className="text-sm text-[#576574] font-medium italic">Weekday classes • March 2nd to 27th • Livestream & On-Demand</p>
           </div>
         </div>
@@ -301,10 +303,8 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-20">
             <div className="max-w-xl space-y-8">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-viridian-dark rounded-full"></div>
-                </div>
+              <div className="flex items-center gap-4">
+                <img src={LOGO_URL} alt="TOYL Yoga Logo" className="w-20 h-20 object-contain" referrerPolicy="no-referrer" />
                 <span className="font-serif font-bold text-3xl tracking-tight">TOYL YOGA</span>
               </div>
               <p className="text-white/60 text-lg leading-relaxed">
