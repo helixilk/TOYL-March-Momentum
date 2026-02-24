@@ -169,6 +169,59 @@ const App: React.FC = () => {
         </div>
       </header>
 
+      {/* Is this the program for you? Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8 order-2 lg:order-1">
+            <SectionHeading title="Is this the program for you?" centered={false} />
+            <ul className="space-y-6">
+              {[
+                "Do you feel stiff, tight and much less mobile ...all from not able to find the time for exercise? Is your body is crying out to reclaim that command?",
+                "Do you sometimes feel that a sudden 'unprepared for' movement, might results in 'straining' a muscle in your body? Have you become so 'risk averse, that you avoid unnecessary physical activity.",
+                "Have you been injured in your past, and are now 'healed'? Do you worry about hurting yourself again and have become overly cautious with your physical activity?",
+                "Are you 'older' person whose perceived expectation that your strength, mobility or balance is now limited or constrained by age? Do you also feel as if you are not ready to be \"put out to pasture\" yet?",
+                "Were you pretty 'Active' in your youth and remember that feeling where your muscles worked seamlessly together to do something physically awesome? Would you like to feel that way again?"
+              ].map((text, i) => (
+                <motion.li 
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-4 text-lg text-[#576574] leading-relaxed"
+                >
+                  <span className="text-viridian font-bold text-2xl leading-none">•</span>
+                  <span>{text}</span>
+                </motion.li>
+              ))}
+            </ul>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-xl font-serif text-viridian-dark font-bold pt-4"
+            >
+              If you identify with any of these descriptions above, then this program is for you.
+            </motion.p>
+          </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative order-1 lg:order-2"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1000&auto=format&fit=crop" 
+              className="rounded-[3rem] shadow-2xl aspect-[4/5] object-cover" 
+              alt="Mindful movement"
+            />
+            <div className="absolute -top-10 -left-10 w-64 h-64 bg-viridian/5 rounded-full -z-10 blur-3xl"></div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* How it Works Section */}
       <section id="how-it-works" className="py-24 bg-viridian-soft">
         <div className="max-w-7xl mx-auto px-6">
