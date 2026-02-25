@@ -109,14 +109,19 @@ const App: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap">
-                <span>JOIN NOW — $27 CAN</span>
+                <span>PRACTICE WITH US</span>
                 <ArrowRight className="w-5 h-5 shrink-0" />
               </Button>
             </div>
             <div className="flex items-center gap-6 pt-4 text-sm text-[#576574]">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
-                  <img key={i} src={`https://picsum.photos/seed/${i + 20}/40/40`} className="w-10 h-10 rounded-full border-2 border-white" alt="Yoga practitioner" referrerPolicy="no-referrer" />
+                {[
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+                  "https://images.unsplash.com/photo-1548142813-c348350df52b?w=100&h=100&fit=crop"
+                ].map((url, i) => (
+                  <img key={i} src={url} className="w-10 h-10 rounded-full border-2 border-white object-cover" alt="Yoga practitioner" referrerPolicy="no-referrer" />
                 ))}
               </div>
               <span>Join 200+ mindful practitioners</span>
@@ -130,9 +135,9 @@ const App: React.FC = () => {
           >
             <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative">
               <img 
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop" 
+                src="https://drive.google.com/thumbnail?id=1rwndSIOEVqCEmtNjRMVBA80OmdxpoaVF&sz=w1000" 
                 className="w-full h-full object-cover" 
-                alt="Yoga practice"
+                alt="Mature man practicing yoga"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-viridian-dark/40 to-transparent"></div>
             </div>
@@ -173,7 +178,6 @@ const App: React.FC = () => {
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8 order-2 lg:order-1">
-            <SectionHeading title="Is this the program for you?" centered={false} />
             <ul className="space-y-6">
               {[
                 "Do you feel stiff, tight and much less mobile ...all from not able to find the time for exercise? Is your body is crying out to reclaim that command?",
@@ -213,9 +217,9 @@ const App: React.FC = () => {
             className="relative order-1 lg:order-2"
           >
             <img 
-              src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1000&auto=format&fit=crop" 
+              src="https://drive.google.com/thumbnail?id=1NAGeDlbA6gJyJTXpE0qFqjKd8hSj1nDu&sz=w1000" 
               className="rounded-[3rem] shadow-2xl aspect-[4/5] object-cover" 
-              alt="Mindful movement"
+              alt="Mature man stretching"
             />
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-viridian/5 rounded-full -z-10 blur-3xl"></div>
           </motion.div>
@@ -281,9 +285,9 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?q=80&w=1000&auto=format&fit=crop" 
+              src="https://drive.google.com/thumbnail?id=1smX1m7y7HPQxeSkdQw4Vsyc2qiUeT8vl&sz=w1000" 
               className="rounded-[3rem] shadow-2xl" 
-              alt="Yoga lifestyle"
+              alt="Mature man in yoga pose"
             />
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-viridian/10 rounded-full -z-10 blur-3xl"></div>
           </div>
@@ -310,16 +314,32 @@ const App: React.FC = () => {
             <p className="text-white/80 max-w-2xl mx-auto">Discover the transformation that happens when you commit to yourself for 20 days straight.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
-              { title: "Enhanced Mobility", desc: "Unlock joints and increase range of motion with yoga specifically tailored for functional movement.", icon: <Users className="w-6 h-6" /> },
-              { title: "Mental Clarity", desc: "Start your morning or end your day with 20 minutes of pure presence and mindful breathing.", icon: <Clock className="w-6 h-6" /> },
-              { title: "Habit Formation", desc: "Science shows 20 days is the threshold for making a new practice feel automatic and required.", icon: <Calendar className="w-6 h-6" /> },
-              { title: "Community Energy", desc: "Practice alongside a global community, sharing the collective momentum and support.", icon: <Users className="w-6 h-6" /> }
+              { 
+                title: "Escape the \"Gravity\" of Inactivity", 
+                desc: "We aren't just aiming for a 'good month'; we are building a permanent exit strategy from the sedentary cycle. This isn't a temporary spark—it’s about shifting your baseline so that 'active' becomes your new default setting." 
+              },
+              { 
+                title: "Confidence-Driven Progression", 
+                desc: "Confidence isn’t found; it’s built through evidence. We proceed at a 'Goldilocks' pace—challenging enough to see real change, but supported enough to ensure you never feel out of your depth." 
+              },
+              { 
+                title: "Rediscover \"Lost\" Ranges of Motion", 
+                desc: "We carefully unlock the stiffness in your hips, spine, and shoulders to reclaim ranges of motion you thought were gone for good. It’s like finding a 'reset' button for your joints." 
+              },
+              { 
+                title: "From Sedentary to Seamlessly Active", 
+                desc: "The bridge between the couch and the life you actually want to live. This program is designed to be progressive and challenging, systematically dismantling the 'perceived limits' you’ve placed on yourself." 
+              },
+              { 
+                title: "The Blueprint for Your Next \"Awesome\"", 
+                desc: "Whether you want to hike, play with your grandkids, or simply wake up without a backache, we provide the 'kick-start' you need to help you do something physically awesome again." 
+              }
             ].map((benefit, i) => (
               <div key={i} className="space-y-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                  <Check className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white font-bold">
+                  {i + 1}
                 </div>
                 <h3 className="text-xl font-serif font-bold">{benefit.title}</h3>
                 <p className="text-white/70 leading-relaxed">{benefit.desc}</p>
