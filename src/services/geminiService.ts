@@ -7,7 +7,7 @@ export async function generateYogaIntention(): Promise<string> {
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
-      contents: "Generate a powerful, single-sentence daily yoga intention for someone in a 20-day mobility challenge. Keep it focused on consistency, self-care, or mental clarity. No hashtags, no quotes around it.",
+      contents: "Generate a powerful, single-sentence daily yoga intention for someone in a 4-week mobility challenge. Keep it focused on consistency, self-care, or mental clarity. No hashtags, no quotes around it.",
       config: {
         temperature: 0.8,
         topP: 0.9,
