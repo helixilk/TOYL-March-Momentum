@@ -133,13 +133,16 @@ const App: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative">
-              <img 
-                src="https://drive.google.com/thumbnail?id=1rwndSIOEVqCEmtNjRMVBA80OmdxpoaVF&sz=w1000" 
-                className="w-full h-full object-cover" 
-                alt="Mature man practicing yoga"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-viridian-dark/40 to-transparent"></div>
+            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative bg-viridian-light">
+              <iframe 
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                src="https://www.youtube.com/embed/tbRi9Gmh5aI?autoplay=1&mute=1&loop=1&playlist=tbRi9Gmh5aI&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+                title="TOYL Yoga Hero Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+              <div className="absolute inset-0 bg-gradient-to-t from-viridian-dark/40 to-transparent pointer-events-none"></div>
             </div>
             {/* Floating Stats */}
             <motion.div 
