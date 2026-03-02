@@ -135,7 +135,7 @@ const App: React.FC = () => {
           >
             <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl relative bg-viridian-light">
               <iframe 
-                className="absolute inset-0 w-full h-full pointer-events-none"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[222%] h-full pointer-events-none"
                 src="https://www.youtube.com/embed/tbRi9Gmh5aI?autoplay=1&mute=1&loop=1&playlist=tbRi9Gmh5aI&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
                 title="TOYL Yoga Hero Video"
                 frameBorder="0"
