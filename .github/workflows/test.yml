@@ -53,6 +53,9 @@ jobs:
         run: npx playwright test
         env:
           CI: true
+          # Dummy key prevents GoogleGenAI constructor from throwing synchronously.
+          # The subsequent API call fails with an auth error, caught gracefully in geminiService.ts.
+          GEMINI_API_KEY: placeholder-key-ci
 
       - uses: actions/upload-artifact@v4
         if: always()

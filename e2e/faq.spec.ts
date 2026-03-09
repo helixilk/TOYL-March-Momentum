@@ -7,16 +7,17 @@ test.describe('FAQ', () => {
   });
 
   test('all 6 FAQ questions are visible', async ({ page }) => {
-    const questions = [
-      'What are the times for the livestream classes?',
-      'How do I reach out if I have any questions?',
-      "I'm not flexible at all—can I actually do this?",
-      'Do I need any special equipment or a lot of space?',
-      'If I find myself falling behind, how can I catch up?',
-      'How do I keep myself motivated?',
+    // Use regex to avoid special-character encoding issues (smart quotes, em dash)
+    const patterns = [
+      /times for the livestream classes/i,
+      /reach out if.*questions/i,
+      /not flexible at all/i,
+      /special equipment/i,
+      /falling behind/i,
+      /keep myself motivated/i,
     ];
-    for (const q of questions) {
-      await expect(page.getByText(q)).toBeVisible();
+    for (const p of patterns) {
+      await expect(page.getByText(p)).toBeVisible();
     }
   });
 
