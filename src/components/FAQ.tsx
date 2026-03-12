@@ -50,12 +50,12 @@ const FAQ: React.FC = () => {
       answer: "Traditional yoga often focuses on static holds and spiritual flexibility. TOYL is a functional movement system. We prioritize fluid repetition and multi-planar motion to \"grease the groove\" of your nervous system. Think of it as a maintenance protocol for your physical hardware—focused on mobility, core stability (The Central Pillar), and nervous system regulation."
     },
     {
-      question: "Is 22 minutes really enough to see results?",
-      answer: "In science, we call this the Minimum Effective Dose. By eliminating the \"bloat\" of traditional 90-minute classes, we focus on high-yield movements that trigger a metabolic shift and a \"sheen of sweat\" quickly. For a busy professional, 22 minutes of consistent, daily practice is vastly superior to a 2-hour session once a week."
+      question: "Is 20 minutes really enough to see results?",
+      answer: "In science, we call this the Minimum Effective Dose. By eliminating the \"bloat\" of traditional 90-minute classes, we focus on high-yield movements that trigger a metabolic shift and a \"sheen of sweat\" quickly. For a busy professional, 20 minutes of consistent, daily practice is vastly superior to a 2-hour session once a week."
     },
     {
       question: "What is the \"Vagal Reset\" and why does it matter?",
-      answer: "The last 4 minutes of every session are dedicated to recovery. By using specific breathing techniques to lower your heart rate, you are training your Vagus Nerve—your body's internal stress brake. For anyone in a high-pressure role, this is the most important skill you can own: the ability to toggle from \"high-alert\" to \"calm-focus\" on command."
+      answer: "The last 2 minutes of every session are dedicated to recovery. By using specific breathing techniques to lower your heart rate, you are training your Vagus Nerve—your body's internal stress brake. For anyone in a high-pressure role, this is the most important skill you can own: the ability to toggle from \"high-alert\" to \"calm-focus\" on command."
     },
     {
       question: "Does this replace my gym routine?",

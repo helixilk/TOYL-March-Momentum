@@ -19,11 +19,11 @@ const App: React.FC = () => {
     <>
       <section className="space-y-3">
         <h3 className="font-bold text-viridian-dark">1. Health & Safety Disclaimer</h3>
-        <p>By participating in TOYL Yoga's 4-Week Mobility Challenge, you acknowledge that yoga and physical exercise involve inherent risks. You should consult with a physician before starting any new fitness program. You agree to participate at your own risk and represent that you are in good physical condition to do so. This program is for informational purposes and is not medical advice.</p>
+        <p>By participating in TOYL Yoga's 20-20 Mobility Program, you acknowledge that yoga and physical exercise involve inherent risks. You should consult with a physician before starting any new fitness program. You agree to participate at your own risk and represent that you are in good physical condition to do so. This program is for informational purposes and is not medical advice.</p>
       </section>
       <section className="space-y-3">
         <h3 className="font-bold text-viridian-dark">2. Program Access</h3>
-        <p>"Lifetime Access" refers to the duration that the TOYL Yoga platform remains operational. The 4-Week Mobility Challenge follows a weekday-only schedule (Monday-Friday). While we strive for 100% uptime, we are not responsible for temporary technical interruptions.</p>
+        <p>"Lifetime Access" refers to the duration that the TOYL Yoga platform remains operational. The 20-20 Mobility Program follows a weekday-only schedule (Monday-Friday). While we strive for 100% uptime, we are not responsible for temporary technical interruptions.</p>
       </section>
       <section className="space-y-3">
         <h3 className="font-bold text-viridian-dark">3. Refund Policy</h3>
@@ -44,7 +44,7 @@ const App: React.FC = () => {
     <>
       <section className="space-y-3">
         <h3 className="font-bold text-viridian-dark">1. Data Collection</h3>
-        <p>We collect your name and email address solely for the purpose of delivering the 4-Week Mobility Challenge program, providing access to our member portal, and processing your registration.</p>
+        <p>We collect your name and email address solely for the purpose of delivering the 20-20 Mobility Program, providing access to our member portal, and processing your registration.</p>
       </section>
       <section className="space-y-3">
         <h3 className="font-bold text-viridian-dark">2. Payment Processing</h3>
@@ -98,14 +98,14 @@ const App: React.FC = () => {
             className="space-y-8"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-viridian/10 text-viridian text-xs font-bold uppercase tracking-widest">
-              Available Now: 4-Week Mobility Challenge
+              Available Now: The 20-20 Mobility Program
             </div>
             <h1 className="text-6xl md:text-8xl font-serif text-viridian-dark leading-[1.1]">
               Find Your <br />
               <span className="italic text-viridian">Flow</span> in 20.
             </h1>
             <p className="text-xl text-[#576574] leading-relaxed max-w-lg">
-              20 minutes. Weekdays only. Master your mobility with a daily ritual as essential as your morning coffee—designed for consistency, built for real life.
+              The 20-20 Program: 20-minute sessions for 20 workdays. Master your mobility with a daily ritual as essential as your morning coffee—designed for consistency, built for real life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap">
@@ -168,7 +168,7 @@ const App: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Calendar className="w-6 h-6 text-viridian" />
                 <div>
-                  <div className="text-2xl font-serif text-viridian font-bold">4 Weeks</div>
+                  <div className="text-2xl font-serif text-viridian font-bold">20 Days</div>
                   <div className="text-[10px] uppercase tracking-wider text-[#576574]">Progression</div>
                 </div>
               </div>
@@ -261,6 +261,10 @@ const App: React.FC = () => {
                 desc: "The bridge between the couch and the life you actually want to live. This program is designed to be progressive and challenging, systematically dismantling the 'perceived limits' you’ve placed on yourself." 
               },
               { 
+                title: "Mobility to Resilience", 
+                desc: "True resilience is the ability to adapt to stress without breaking. By improving your physical mobility, you are simultaneously training your nervous system to remain calm under pressure, turning physical flexibility into mental fortitude." 
+              },
+              { 
                 title: "The Blueprint for Your Next \"Awesome\"", 
                 desc: "Whether you want to hike, play with your grandkids, or simply wake up without a backache, we provide the 'kick-start' you need to help you do something physically awesome again." 
               }
@@ -281,8 +285,8 @@ const App: React.FC = () => {
       <section id="how-it-works" className="py-24 bg-viridian-soft">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading 
-            title="The Resilience Protocol" 
-            subtitle="We don't just 'stretch.' We engineer resilience through a three-phase flow:"
+            title="The 20 Minute Protocol" 
+            subtitle="Mobility is the marriage of flexibility and strength. It’s not about how far you can bend; it’s about how much control you have throughout that bend. Let's unlock the body’s full range of motion, ensuring you can reach, twist, and move in your daily life without restriction."
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
@@ -359,7 +363,7 @@ const App: React.FC = () => {
       {/* FAQ Section */}
       <section id="faq-section" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeading title="Frequently Asked Questions" subtitle="Everything you need to know about the 4-week mobility challenge." />
+          <SectionHeading title="Frequently Asked Questions" subtitle="Everything you need to know about the 20-20 mobility program." />
           <FAQ />
         </div>
       </section>
@@ -369,7 +373,7 @@ const App: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif text-viridian-dark">Ready to begin your <br /><span className="italic text-viridian">Practice?</span></h2>
           <p className="text-xl text-[#576574] leading-relaxed">
-            Don't let another month pass without prioritizing your mobility. Join our 4-week program today for just $27 CAN.
+            Don't let another month pass without prioritizing your mobility. Join our 20-20 program today for just $27 CAN.
           </p>
           <div className="flex flex-col items-center gap-6">
             <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap">SECURE MY SPOT — $27</Button>
