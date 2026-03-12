@@ -179,8 +179,12 @@ const App: React.FC = () => {
 
       {/* Is this the program for you? Section */}
       <section className="py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8 order-2 lg:order-1">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16">
+            <SectionHeading title="Is This You?" centered={false} />
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="space-y-8 order-2 lg:order-1">
             <ul className="space-y-6">
               {[
                 "Do you feel stiff, tight and much less mobile ...all from not able to find the time for exercise? Is your body is crying out to reclaim that command?",
@@ -227,13 +231,57 @@ const App: React.FC = () => {
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-viridian/5 rounded-full -z-10 blur-3xl"></div>
           </motion.div>
         </div>
+      </div>
+    </section>
+
+      {/* Benefits Section */}
+      <section id="benefits" className="py-24 bg-viridian text-white rounded-[4rem] mx-6 mb-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif mb-6">Why this Program</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">Discover the transformation that happens when you commit to yourself for 20 days straight.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {[
+              { 
+                title: "Escape the \"Gravity\" of Inactivity", 
+                desc: "We aren't just aiming for a 'good month'; we are building a permanent exit strategy from the sedentary cycle. This isn't a temporary spark—it’s about shifting your baseline so that 'active' becomes your new default setting." 
+              },
+              { 
+                title: "Confidence-Driven Progression", 
+                desc: "Confidence isn’t found; it’s built through evidence. We proceed at a 'Goldilocks' pace—challenging enough to see real change, but supported enough to ensure you never feel out of your depth." 
+              },
+              { 
+                title: "Rediscover \"Lost\" Ranges of Motion", 
+                desc: "We carefully unlock the stiffness in your hips, spine, and shoulders to reclaim ranges of motion you thought were gone for good. It’s like finding a 'reset' button for your joints." 
+              },
+              { 
+                title: "From Sedentary to Seamlessly Active", 
+                desc: "The bridge between the couch and the life you actually want to live. This program is designed to be progressive and challenging, systematically dismantling the 'perceived limits' you’ve placed on yourself." 
+              },
+              { 
+                title: "The Blueprint for Your Next \"Awesome\"", 
+                desc: "Whether you want to hike, play with your grandkids, or simply wake up without a backache, we provide the 'kick-start' you need to help you do something physically awesome again." 
+              }
+            ].map((benefit, i) => (
+              <div key={i} className="space-y-4">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white font-bold">
+                  {i + 1}
+                </div>
+                <h3 className="text-xl font-serif font-bold">{benefit.title}</h3>
+                <p className="text-white/70 leading-relaxed">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* How it Works Section */}
       <section id="how-it-works" className="py-24 bg-viridian-soft">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading 
-            title="The 20-20 Blueprint" 
+            title="The Resilience Protocol" 
             subtitle="We don't just 'stretch.' We engineer resilience through a three-phase flow:"
           />
           
@@ -305,49 +353,6 @@ const App: React.FC = () => {
       <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-6">
           <DailyIntention />
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section id="benefits" className="py-24 bg-viridian text-white rounded-[4rem] mx-6 mb-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif mb-6">Why this Program</h2>
-            <p className="text-white/80 max-w-2xl mx-auto">Discover the transformation that happens when you commit to yourself for 20 days straight.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {[
-              { 
-                title: "Escape the \"Gravity\" of Inactivity", 
-                desc: "We aren't just aiming for a 'good month'; we are building a permanent exit strategy from the sedentary cycle. This isn't a temporary spark—it’s about shifting your baseline so that 'active' becomes your new default setting." 
-              },
-              { 
-                title: "Confidence-Driven Progression", 
-                desc: "Confidence isn’t found; it’s built through evidence. We proceed at a 'Goldilocks' pace—challenging enough to see real change, but supported enough to ensure you never feel out of your depth." 
-              },
-              { 
-                title: "Rediscover \"Lost\" Ranges of Motion", 
-                desc: "We carefully unlock the stiffness in your hips, spine, and shoulders to reclaim ranges of motion you thought were gone for good. It’s like finding a 'reset' button for your joints." 
-              },
-              { 
-                title: "From Sedentary to Seamlessly Active", 
-                desc: "The bridge between the couch and the life you actually want to live. This program is designed to be progressive and challenging, systematically dismantling the 'perceived limits' you’ve placed on yourself." 
-              },
-              { 
-                title: "The Blueprint for Your Next \"Awesome\"", 
-                desc: "Whether you want to hike, play with your grandkids, or simply wake up without a backache, we provide the 'kick-start' you need to help you do something physically awesome again." 
-              }
-            ].map((benefit, i) => (
-              <div key={i} className="space-y-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-white font-bold">
-                  {i + 1}
-                </div>
-                <h3 className="text-xl font-serif font-bold">{benefit.title}</h3>
-                <p className="text-white/70 leading-relaxed">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
