@@ -46,12 +46,20 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 const FAQ: React.FC = () => {
   const faqs = [
     {
-      question: "What are the times for the livestream classes?",
-      answer: "In order to facilitate a busy lifestyle, two (2) livestream sessions will be hosted per weekday. While all participants are invited to attend at least one of these, they are absolutely welcome to attend them both. The first session is at 7:00am EST, while the second session is at 8:00pm EST."
+      question: "How is this different from a regular Yoga class?",
+      answer: "Traditional yoga often focuses on static holds and spiritual flexibility. TOYL is a functional movement system. We prioritize fluid repetition and multi-planar motion to \"grease the groove\" of your nervous system. Think of it as a maintenance protocol for your physical hardware—focused on mobility, core stability (The Central Pillar), and nervous system regulation."
     },
     {
-      question: "How do I reach out if I have any questions?",
-      answer: "All inquiries can be addressed to the contact email \"charles@toyl.ca\". Responses will be provide within 24 hours."
+      question: "Is 22 minutes really enough to see results?",
+      answer: "In science, we call this the Minimum Effective Dose. By eliminating the \"bloat\" of traditional 90-minute classes, we focus on high-yield movements that trigger a metabolic shift and a \"sheen of sweat\" quickly. For a busy professional, 22 minutes of consistent, daily practice is vastly superior to a 2-hour session once a week."
+    },
+    {
+      question: "What is the \"Vagal Reset\" and why does it matter?",
+      answer: "The last 4 minutes of every session are dedicated to recovery. By using specific breathing techniques to lower your heart rate, you are training your Vagus Nerve—your body's internal stress brake. For anyone in a high-pressure role, this is the most important skill you can own: the ability to toggle from \"high-alert\" to \"calm-focus\" on command."
+    },
+    {
+      question: "Does this replace my gym routine?",
+      answer: "It can, or it can serve as the infrastructure that supports it. Many of our clients use the TOYL protocol as their daily baseline to ensure their joints and nervous system are resilient enough to handle heavier lifting or high-stress workloads without injury."
     },
     {
       question: "I’m not flexible at all—can I actually do this?",
@@ -68,6 +76,14 @@ const FAQ: React.FC = () => {
     {
       question: "How do I keep myself motivated?",
       answer: "When your drive to persist is waning, we suggest you stop looking at the mountain and just look at the mat. Tell yourself: 'I’m just going to roll out the mat and stand on it for 2 minutes', and celebrate doing this. Usually though, once you’re there, the body takes over and you may practice for a bit. Celebrate this too. Remember, we are about persistence, and not perfection."
+    },
+    {
+      question: "What are the times for the livestream classes?",
+      answer: "In order to facilitate a busy lifestyle, two (2) livestream sessions will be hosted per weekday. While all participants are invited to attend at least one of these, they are absolutely welcome to attend them both. The first session is at 7:00am EST, while the second session is at 8:00pm EST."
+    },
+    {
+      question: "How do I reach out if I have any questions?",
+      answer: "All inquiries can be addressed to the contact email \"helixilk@gmail.com\" or via the social media links provided below. Responses will be provide within 24 hours."
     }
   ];
 
