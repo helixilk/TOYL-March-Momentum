@@ -105,7 +105,7 @@ const App: React.FC = () => {
               <span className="italic text-viridian">Flow</span> in 20.
             </h1>
             <p className="text-xl text-[#576574] leading-relaxed max-w-lg">
-              Unlock consistency and mobility with our 4-week, 20-minute daily practice. Designed for weekdays, built for real life.
+              20 minutes. Weekdays only. Master your mobility with a daily ritual as essential as your morning coffee—designed for consistency, built for real life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap">
@@ -305,32 +305,6 @@ const App: React.FC = () => {
       <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-6">
           <DailyIntention />
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="relative">
-            <img 
-              src="https://drive.google.com/thumbnail?id=1smX1m7y7HPQxeSkdQw4Vsyc2qiUeT8vl&sz=w1000" 
-              className="rounded-[3rem] shadow-2xl" 
-              alt="Mature man in yoga pose"
-            />
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-viridian/10 rounded-full -z-10 blur-3xl"></div>
-          </div>
-          <div className="space-y-6">
-            <SectionHeading title="A Practice, Not a Task" centered={false} />
-            <p className="text-lg text-[#576574] leading-relaxed">
-              At TOYL (Time Of Your Life) Yoga, we believe that fitness shouldn't be a chore you "get through." Instead, it should be a "required" lifestyle practice—as essential to your day as your morning coffee.
-            </p>
-            <p className="text-lg text-[#576574] leading-relaxed">
-              Our 4-Week Mobility Challenge is designed to bridge the gap between sporadic exercise and a lifelong commitment to mobility. For just $27, you aren't just buying classes; you're investing in a new rhythm for your life.
-            </p>
-            <div className="pt-6">
-              <Button href={STRIPE_PLACEHOLDER_URL}>RESERVE YOUR MAT</Button>
-            </div>
-          </div>
         </div>
       </section>
 
