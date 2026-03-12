@@ -234,45 +234,70 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading 
             title="The 20-20 Blueprint" 
-            subtitle="Instructor-Led or On-Demand. We provide the structure; you provide the presence."
+            subtitle="We don't just 'stretch.' We engineer resilience through a three-phase flow:"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {[
               { 
-                step: "01", 
-                title: "Weekdays Only", 
-                desc: "Consistency is key, but so is recovery. We host live and on-demand classes Monday through Friday, leaving your weekends free for rest and reflection.",
+                step: "Phase 1", 
+                title: "Greasing the Groove (10 mins)", 
+                science: "We use fluid, multi-planar repetition to strengthen neural pathways (Myelination).",
+                result: "Movement becomes 'easier' and more efficient. By moving through every plane of motion—twisting, prone, and supine—we lubricate the joints and hydrate the fascia, undoing the damage of the 'desk-chair' posture.",
                 icon: <Calendar className="w-6 h-6" />
               },
               { 
-                step: "02", 
-                title: "20-Minute Focus", 
-                desc: "Short enough to fit into a busy schedule, long enough to transform your mobility. Every session is targeted, intentional, and high-impact.",
+                step: "Phase 2", 
+                title: "The Thermogenic Threshold (8 mins)", 
+                science: "We increase the pace to reach a 'sheen of sweat,' signaling a metabolic shift.",
+                result: "We build functional strength around your Central Pillar (Core and Spine) and improve cardiovascular health without the systemic inflammation of long-duration sessions.",
                 icon: <Clock className="w-6 h-6" />
               },
               { 
-                step: "03", 
-                title: "Lifetime Access", 
-                desc: "Can't make the livestream? No problem. Every class is recorded and available on-demand, so you can maintain your momentum whenever you choose.",
+                step: "Phase 3", 
+                title: "The Vagal Reset (2 mins)", 
+                science: "We use targeted breathwork to intentionally engage the Vagus Nerve.",
+                result: "You learn to 'hit the brakes' on stress. By restoring your heart rate in under 4 minutes, you are actively training your HRV (Heart Rate Variability)—the ultimate metric of a resilient leader.",
                 icon: <Play className="w-6 h-6" />
               }
             ].map((item, i) => (
               <motion.div 
                 key={i}
                 whileHover={{ y: -5 }}
-                className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-viridian/5"
+                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-viridian/5 flex flex-col"
               >
-                <div className="w-12 h-12 bg-viridian/10 rounded-2xl flex items-center justify-center text-viridian font-serif text-2xl font-bold mb-6">
-                  {item.icon}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 bg-viridian/10 rounded-2xl flex items-center justify-center text-viridian">
+                    {item.icon}
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-viridian/60">{item.step}</span>
                 </div>
-                <h3 className="text-2xl font-serif text-viridian-dark mb-4">{item.title}</h3>
-                <p className="text-[#576574] leading-relaxed">
-                  {item.desc}
-                </p>
+                <h3 className="text-xl font-serif text-viridian-dark mb-6 leading-tight">{item.title}</h3>
+                <div className="space-y-4 text-sm">
+                  <div>
+                    <span className="font-bold text-viridian block mb-1">The Science:</span>
+                    <p className="text-[#576574] leading-relaxed">{item.science}</p>
+                  </div>
+                  <div>
+                    <span className="font-bold text-viridian block mb-1">The Result:</span>
+                    <p className="text-[#576574] leading-relaxed">{item.result}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20 text-center max-w-3xl mx-auto"
+          >
+            <div className="h-px w-24 bg-viridian/20 mx-auto mb-8"></div>
+            <p className="text-2xl font-serif italic text-viridian-dark leading-relaxed">
+              "The mission is simple: Help you find ways to incorporate consistent, healthy practices into an already hectic and stress-filled life."
+            </p>
+          </motion.div>
         </div>
       </section>
 
