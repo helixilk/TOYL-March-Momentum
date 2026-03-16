@@ -293,7 +293,7 @@ const App: React.FC = () => {
             {[
               { 
                 step: "Phase 1", 
-                title: "Greasing the Groove (10 mins)", 
+                title: "Greasing the Groove (12 mins)", 
                 science: "We use fluid, multi-planar repetition to strengthen neural pathways (Myelination).",
                 result: "Movement becomes 'easier' and more efficient. By moving through every plane of motion—twisting, prone, and supine—we lubricate the joints and hydrate the fascia, undoing the damage of the 'desk-chair' posture.",
                 icon: <Calendar className="w-6 h-6" />
