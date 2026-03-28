@@ -3,11 +3,11 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
-  --color-viridian: #007F5F;
-  --color-viridian-dark: #004B3E;
-  --color-viridian-light: #F1F7F5;
-  --color-viridian-soft: #F8FAF9;
-  --color-viridian-accent: #E6F2ED;
+  --color-viridian: #0066CC;
+  --color-viridian-dark: #002B7F;
+  --color-viridian-light: #E6F0FF;
+  --color-viridian-soft: #F5F8FF;
+  --color-viridian-accent: #E0E7FF;
 }
 
 body {
@@ -16,5 +16,5 @@ body {
 }
 
 .viridian-gradient {
-  background: linear-gradient(135deg, #007F5F 0%, #004B3E 100%);
+  background: linear-gradient(135deg, #0066CC 0%, #002B7F 100%);
 }
