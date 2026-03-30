@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-03-30
-**Session:** Phase 2 plan 02-05 execution complete
+**Session:** Phase 2 plans 02-04 and 02-05 execution complete (wave 3)
 
 ---
 
@@ -68,6 +68,8 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | useMemo for UTM capture, not useEffect | Synchronous read requires no side effects; simpler and immediately available on first render |
 | aria-busy on submit button | Screen readers announce loading state without additional live regions |
 | Error state preserves field values | UX: user can correct a typo or retry without re-entering all fields |
+| vi.stubGlobal('fetch') for unit tests | Tests real waitlistService error-mapping path while isolating network layer |
+| page.route() before page.goto() in E2E | Ensures mock is registered before any request fires; prevents real EspoCRM calls |
 
 ### Known Constraints
 
@@ -123,4 +125,4 @@ To resume work:
 ---
 
 *State initialized: 2026-03-29 after roadmap creation*
-*Updated: 2026-03-30 after Phase 2 plan 02-05 completion*
+*Updated: 2026-03-30 after Phase 2 plans 02-04 and 02-05 completion (wave 3)*
