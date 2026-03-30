@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-03-30
-**Session:** Phase 2 plan 02-02 execution complete
+**Session:** Phase 2 plan 02-03 execution complete
 
 ---
 
@@ -9,7 +9,7 @@
 
 **Core value:** Visitors submit their contact info and enter an automated nurture sequence that converts them into paying students.
 
-**Current focus:** Phase 2 — EspoCRM integration (Plan 02-02 complete)
+**Current focus:** Phase 2 — EspoCRM integration (Plans 02-01, 02-02, 02-03 complete)
 
 **Stack:** React 18 + TypeScript + Vite + Tailwind v4, Netlify deployment with serverless functions
 
@@ -18,12 +18,12 @@
 ## Current Position
 
 **Active phase:** Phase 2 — EspoCRM
-**Active plan:** 02-02 complete — awaiting Phase 2 plan 02-03 execution
+**Active plan:** 02-03 complete — awaiting Phase 2 plan 02-04 execution (unit tests)
 **Status:** Phase 2 In Progress
 
 ```
 Phase 1 [Testing]       ██████████  Complete
-Phase 2 [EspoCRM]       ██████░░░░  In Progress (2/6 plans done)
+Phase 2 [EspoCRM]       █████░░░░░  In Progress (3/6 plans done)
 Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 ```
 
@@ -64,12 +64,15 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | source: "Web Site" (with space) | EspoCRM Lead source is a string enum — must match exactly or CRM silently ignores it |
 | emailAddress not email in CRM payload | EspoCRM Lead entity uses emailAddress as the field name; email would create a Lead with no email |
 | AbortSignal.timeout(8000) for CRM fetch | Prevents hung requests from blocking the serverless function; returns 504 on timeout |
+| Service layer owns the fetch URL | WaitlistForm stays UI-only; URL change requires touching one file (waitlistService) |
+| useMemo for UTM capture, not useEffect | Synchronous read requires no side effects; simpler and immediately available on first render |
+| aria-busy on submit button | Screen readers announce loading state without additional live regions |
+| Error state preserves field values | UX: user can correct a typo or retry without re-entering all fields |
 
 ### Known Constraints
 
 - EspoCRM API key must never appear client-side
 - Analytics IDs (GTM container ID, GA4 measurement ID, Meta Pixel ID, LinkedIn Partner ID) must be provided before Phase 3 can ship
-- No waitlist form component exists yet — needs to be built in Phase 2 plan 03
 - Netlify functions live at `netlify/functions/` (relative to project root)
 
 ### Key Files
@@ -77,8 +80,10 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | File | Purpose |
 |------|---------|
 | `src/App.tsx` | Application shell — owns all sections and modal state |
-| `src/components/` | Button, SectionHeading, FAQ, DailyIntention, LegalModal |
+| `src/components/` | Button, SectionHeading, FAQ, DailyIntention, LegalModal, WaitlistForm |
 | `src/services/geminiService.ts` | Gemini API integration with fallback |
+| `src/services/waitlistService.ts` | Fetch wrapper: POSTs to /.netlify/functions/submit-lead |
+| `src/components/WaitlistForm.tsx` | Waitlist form UI with 4 states (idle/loading/success/error) |
 | `src/constants.tsx` | App-wide literals (colours, URLs, program metadata) |
 | `index.html` | Entry point — GTM snippet will be added here in Phase 3 |
 | `playwright.config.ts` | E2E config — webServer env block passes GEMINI_API_KEY |
@@ -90,7 +95,7 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 
 ### Blockers
 
-None. Function infrastructure and serverless proxy are ready.
+None. Full client-side and server-side data path is built.
 
 User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 06 (end-to-end testing) can run.
 
@@ -105,17 +110,17 @@ User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 
 ## Session Continuity
 
 **Last session:** 2026-03-30
-**Stopped at:** Completed 02-02-PLAN.md (serverless-proxy-function)
+**Stopped at:** Completed 02-03-PLAN.md (waitlist-form-component)
 **Resume file:** None
 
 To resume work:
 
 1. Check which phase is active above
-2. Execute Phase 2 plan 03 (waitlist form component)
+2. Execute Phase 2 plan 04 (unit tests for waitlistService and WaitlistForm)
 3. Ensure ESPOCRM_API_KEY and ESPOCRM_BASE_URL are set before plan 06 end-to-end testing
 4. Check the open PR for Phase 2 on GitHub (#2 for EspoCRM)
 
 ---
 
 *State initialized: 2026-03-29 after roadmap creation*
-*Updated: 2026-03-30 after Phase 2 plan 02-02 completion*
+*Updated: 2026-03-30 after Phase 2 plan 02-03 completion*
