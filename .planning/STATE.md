@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-03-30
-**Session:** Phase 2 plan 02-03 execution complete
+**Session:** Phase 2 plan 02-05 execution complete
 
 ---
 
@@ -18,12 +18,12 @@
 ## Current Position
 
 **Active phase:** Phase 2 — EspoCRM
-**Active plan:** 02-03 complete — awaiting Phase 2 plan 02-04 execution (unit tests)
+**Active plan:** 02-05 complete — awaiting Phase 2 plan 02-06 execution (E2E tests)
 **Status:** Phase 2 In Progress
 
 ```
 Phase 1 [Testing]       ██████████  Complete
-Phase 2 [EspoCRM]       █████░░░░░  In Progress (3/6 plans done)
+Phase 2 [EspoCRM]       ████████░░  In Progress (5/6 plans done)
 Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 ```
 
@@ -110,17 +110,17 @@ User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 
 ## Session Continuity
 
 **Last session:** 2026-03-30
-**Stopped at:** Completed 02-03-PLAN.md (waitlist-form-component)
+**Stopped at:** Completed 02-05-PLAN.md (app-integration — WaitlistForm in App.tsx)
 **Resume file:** None
 
 To resume work:
 
 1. Check which phase is active above
-2. Execute Phase 2 plan 04 (unit tests for waitlistService and WaitlistForm)
-3. Ensure ESPOCRM_API_KEY and ESPOCRM_BASE_URL are set before plan 06 end-to-end testing
+2. Execute Phase 2 plan 06 (E2E tests — Playwright verifies form on page load)
+3. Ensure ESPOCRM_API_KEY and ESPOCRM_BASE_URL are set before plan 06 live-submission tests can pass
 4. Check the open PR for Phase 2 on GitHub (#2 for EspoCRM)
 
 ---
 
 *State initialized: 2026-03-29 after roadmap creation*
-*Updated: 2026-03-30 after Phase 2 plan 02-03 completion*
+*Updated: 2026-03-30 after Phase 2 plan 02-05 completion*
