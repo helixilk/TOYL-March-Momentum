@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-03-30
-**Session:** Phase 1 plan 01-01 execution complete
+**Session:** Phase 2 plan 02-01 execution complete
 
 ---
 
@@ -9,21 +9,21 @@
 
 **Core value:** Visitors submit their contact info and enter an automated nurture sequence that converts them into paying students.
 
-**Current focus:** Phase 2 — EspoCRM integration (Phase 1 complete)
+**Current focus:** Phase 2 — EspoCRM integration (Plan 02-01 complete)
 
-**Stack:** React 18 + TypeScript + Vite + Tailwind v4, static SPA deployment
+**Stack:** React 18 + TypeScript + Vite + Tailwind v4, Netlify deployment with serverless functions
 
 ---
 
 ## Current Position
 
 **Active phase:** Phase 2 — EspoCRM
-**Active plan:** None (awaiting Phase 2 plan execution)
-**Status:** Phase 1 Complete
+**Active plan:** 02-01 complete — awaiting Phase 2 plan 02-02 execution
+**Status:** Phase 2 In Progress
 
 ```
 Phase 1 [Testing]       ██████████  Complete
-Phase 2 [EspoCRM]       ░░░░░░░░░░  Pending
+Phase 2 [EspoCRM]       ███░░░░░░░  In Progress (1/3 plans done)
 Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 ```
 
@@ -42,7 +42,7 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | Phases complete | 1 |
 | Requirements total (v1) | 16 |
 | Requirements complete | 4 (Phase 1: TEST-01, TEST-02, TEST-03, TEST-04) |
-| Requirements in progress | 0 |
+| Requirements in progress | Phase 2 underway |
 
 ---
 
@@ -58,14 +58,16 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | Testing first, then CRM, then analytics | Foundation before features; analytics validates CRM conversions |
 | GEMINI_API_KEY=placeholder-key-ci for E2E | Prevents geminiService constructor throw in Playwright webServer; no real API calls made |
 | vi.mock for geminiService in unit tests | Isolates service layer; unit tests run without any API key requirement |
+| Netlify as hosting provider | Confirmed by @netlify/vite-plugin + netlify.toml setup in Phase 2 plan 01 |
+| ESPOCRM_* vars not VITE_-prefixed | VITE_-prefixed vars are injected into the browser bundle; API keys must never reach the client |
+| Env vars in Netlify dashboard (Functions scope) | netlify.toml [environment] block is build-time only; runtime function secrets go in dashboard |
 
 ### Known Constraints
 
-- Hosting environment TBD — serverless function must be compatible (Netlify/Vercel functions preferred)
 - EspoCRM API key must never appear client-side
 - Analytics IDs (GTM container ID, GA4 measurement ID, Meta Pixel ID, LinkedIn Partner ID) must be provided before Phase 3 can ship
-- No waitlist form component exists yet — needs to be built in Phase 2
-- No server-side function infrastructure exists yet — needs to be established in Phase 2
+- No waitlist form component exists yet — needs to be built in Phase 2 plan 03
+- Netlify functions live at `netlify/functions/` (relative to project root)
 
 ### Key Files
 
@@ -78,14 +80,20 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | `index.html` | Entry point — GTM snippet will be added here in Phase 3 |
 | `playwright.config.ts` | E2E config — webServer env block passes GEMINI_API_KEY |
 | `.github/workflows/test.yml` | CI: runs unit and E2E jobs on every PR push |
+| `netlify.toml` | Build config and SPA redirect rule (status=200 catch-all) |
+| `vite.config.ts` | Vite config with @netlify/vite-plugin wiring local function proxy |
+| `.env.local.example` | Template for ESPOCRM_API_KEY and ESPOCRM_BASE_URL (no VITE_ prefix) |
 
 ### Blockers
 
-None. Phase 2 requires hosting environment decision before serverless proxy can be implemented.
+None. Netlify confirmed as hosting provider. Function infrastructure is ready.
+
+User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 02 (serverless function) can be tested end-to-end.
 
 ### Todos
 
-- [ ] Confirm hosting provider (Netlify vs Vercel) before Phase 2 plan is executed
+- [x] Confirm hosting provider (Netlify) — resolved in Phase 2 plan 01
+- [ ] User: create EspoCRM API key and set ESPOCRM_API_KEY + ESPOCRM_BASE_URL in Netlify dashboard (Functions scope)
 - [ ] Collect GTM container ID, GA4 measurement ID, Meta Pixel ID, LinkedIn Partner ID before Phase 3 executes
 
 ---
@@ -93,17 +101,17 @@ None. Phase 2 requires hosting environment decision before serverless proxy can 
 ## Session Continuity
 
 **Last session:** 2026-03-30
-**Stopped at:** Completed 01-01-PLAN.md (verify-and-merge testing baseline)
+**Stopped at:** Completed 02-01-PLAN.md (netlify-infrastructure)
 **Resume file:** None
 
 To resume work:
+
 1. Check which phase is active above
-2. Read `.planning/ROADMAP.md` for phase goals and success criteria
-3. Check the open PR for the active phase on GitHub (#2 for EspoCRM)
-4. Confirm hosting provider decision before executing Phase 2 plan
-5. Run `npm test` to verify regression baseline before starting new work
+2. Execute Phase 2 plan 02 (serverless function: netlify/functions/submit-lead.ts)
+3. Ensure ESPOCRM_API_KEY and ESPOCRM_BASE_URL are set before end-to-end testing
+4. Check the open PR for Phase 2 on GitHub (#2 for EspoCRM)
 
 ---
 
 *State initialized: 2026-03-29 after roadmap creation*
-*Updated: 2026-03-30 after Phase 1 plan 01-01 completion*
+*Updated: 2026-03-30 after Phase 2 plan 02-01 completion*
