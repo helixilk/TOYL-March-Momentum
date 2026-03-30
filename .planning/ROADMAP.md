@@ -49,6 +49,17 @@ Plans:
 
 **Status:** Pending
 
+**Plans:** 6 plans
+
+Plans:
+
+- [ ] 02-01-PLAN.md — Netlify infrastructure (netlify.toml, @netlify/vite-plugin, .env.local.example)
+- [ ] 02-02-PLAN.md — Serverless proxy function (netlify/functions/submit-lead.mts)
+- [ ] 02-03-PLAN.md — WaitlistForm component and waitlistService (client-side)
+- [ ] 02-04-PLAN.md — Unit tests (WaitlistForm.test.tsx) and E2E tests (waitlist.spec.ts)
+- [ ] 02-05-PLAN.md — Integrate WaitlistForm into App.tsx with waitlist section
+- [ ] 02-06-PLAN.md — End-to-end verification: real submission to EspoCRM, API key audit, workflow log
+
 #### Success Criteria
 
 1. A visible waitlist form on the page accepts first name, last name, and email, and submits without a page reload.
@@ -114,3 +125,4 @@ Plans:
 
 *Roadmap created: 2026-03-29*
 *Phase 1 complete: 2026-03-30*
+*Phase 2 planned: 2026-03-30*
