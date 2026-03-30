@@ -7,6 +7,7 @@ import SectionHeading from './components/SectionHeading';
 import DailyIntention from './components/DailyIntention';
 import FAQ from './components/FAQ';
 import LegalModal from './components/LegalModal';
+import WaitlistForm from './components/WaitlistForm';
 import { STRIPE_PLACEHOLDER_URL } from './constants';
 
 const LOGO_URL = "https://drive.google.com/thumbnail?id=13-VlkdL0_w7pGVJ186Orh_FoUCBtezos&sz=w1000";
@@ -82,6 +83,7 @@ const App: React.FC = () => {
             <a href="#how-it-works" className="hover:text-viridian transition-colors">How it Works</a>
             <a href="#about" className="hover:text-viridian transition-colors">About</a>
             <a href="#benefits" className="hover:text-viridian transition-colors">Benefits</a>
+            <a href="#waitlist" className="hover:text-viridian transition-colors">Join Waitlist</a>
             <Button href={STRIPE_PLACEHOLDER_URL} className="px-5 py-2 text-xs">JOIN FOR $27</Button>
           </div>
         </div>
@@ -365,6 +367,19 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeading title="Frequently Asked Questions" subtitle="Everything you need to know about the 20-20 mobility program." />
           <FAQ />
+        </div>
+      </section>
+
+      {/* Waitlist Section */}
+      <section id="waitlist" className="py-24 bg-viridian-soft">
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <SectionHeading
+              title="Join the Waitlist"
+              subtitle="Be the first to know when new sessions open. Drop your details below and we'll reach out with everything you need to get started."
+            />
+          </div>
+          <WaitlistForm />
         </div>
       </section>
 
