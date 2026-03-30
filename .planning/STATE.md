@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-03-30
-**Session:** Phase 2 plan 02-01 execution complete
+**Session:** Phase 2 plan 02-02 execution complete
 
 ---
 
@@ -9,7 +9,7 @@
 
 **Core value:** Visitors submit their contact info and enter an automated nurture sequence that converts them into paying students.
 
-**Current focus:** Phase 2 — EspoCRM integration (Plan 02-01 complete)
+**Current focus:** Phase 2 — EspoCRM integration (Plan 02-02 complete)
 
 **Stack:** React 18 + TypeScript + Vite + Tailwind v4, Netlify deployment with serverless functions
 
@@ -18,12 +18,12 @@
 ## Current Position
 
 **Active phase:** Phase 2 — EspoCRM
-**Active plan:** 02-01 complete — awaiting Phase 2 plan 02-02 execution
+**Active plan:** 02-02 complete — awaiting Phase 2 plan 02-03 execution
 **Status:** Phase 2 In Progress
 
 ```
 Phase 1 [Testing]       ██████████  Complete
-Phase 2 [EspoCRM]       ███░░░░░░░  In Progress (1/3 plans done)
+Phase 2 [EspoCRM]       ██████░░░░  In Progress (2/6 plans done)
 Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 ```
 
@@ -61,6 +61,9 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | Netlify as hosting provider | Confirmed by @netlify/vite-plugin + netlify.toml setup in Phase 2 plan 01 |
 | ESPOCRM_* vars not VITE_-prefixed | VITE_-prefixed vars are injected into the browser bundle; API keys must never reach the client |
 | Env vars in Netlify dashboard (Functions scope) | netlify.toml [environment] block is build-time only; runtime function secrets go in dashboard |
+| source: "Web Site" (with space) | EspoCRM Lead source is a string enum — must match exactly or CRM silently ignores it |
+| emailAddress not email in CRM payload | EspoCRM Lead entity uses emailAddress as the field name; email would create a Lead with no email |
+| AbortSignal.timeout(8000) for CRM fetch | Prevents hung requests from blocking the serverless function; returns 504 on timeout |
 
 ### Known Constraints
 
@@ -83,12 +86,13 @@ Phase 3 [Analytics]     ░░░░░░░░░░  Pending
 | `netlify.toml` | Build config and SPA redirect rule (status=200 catch-all) |
 | `vite.config.ts` | Vite config with @netlify/vite-plugin wiring local function proxy |
 | `.env.local.example` | Template for ESPOCRM_API_KEY and ESPOCRM_BASE_URL (no VITE_ prefix) |
+| `netlify/functions/submit-lead.mts` | Serverless proxy: validates input, creates EspoCRM Lead via X-Api-Key |
 
 ### Blockers
 
-None. Netlify confirmed as hosting provider. Function infrastructure is ready.
+None. Function infrastructure and serverless proxy are ready.
 
-User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 02 (serverless function) can be tested end-to-end.
+User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 06 (end-to-end testing) can run.
 
 ### Todos
 
@@ -101,17 +105,17 @@ User must provide real ESPOCRM_API_KEY and ESPOCRM_BASE_URL before Phase 2 plan 
 ## Session Continuity
 
 **Last session:** 2026-03-30
-**Stopped at:** Completed 02-01-PLAN.md (netlify-infrastructure)
+**Stopped at:** Completed 02-02-PLAN.md (serverless-proxy-function)
 **Resume file:** None
 
 To resume work:
 
 1. Check which phase is active above
-2. Execute Phase 2 plan 02 (serverless function: netlify/functions/submit-lead.ts)
-3. Ensure ESPOCRM_API_KEY and ESPOCRM_BASE_URL are set before end-to-end testing
+2. Execute Phase 2 plan 03 (waitlist form component)
+3. Ensure ESPOCRM_API_KEY and ESPOCRM_BASE_URL are set before plan 06 end-to-end testing
 4. Check the open PR for Phase 2 on GitHub (#2 for EspoCRM)
 
 ---
 
 *State initialized: 2026-03-29 after roadmap creation*
-*Updated: 2026-03-30 after Phase 2 plan 02-01 completion*
+*Updated: 2026-03-30 after Phase 2 plan 02-02 completion*
