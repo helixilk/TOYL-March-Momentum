@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-04-02
-**Session:** Phase 3 plan 01 complete — GTM snippet, dataLayer types, Button onClick fix
+**Session:** Phase 3 plan 02 complete — cta_click and form_submit dataLayer events wired
 
 ---
 
@@ -18,13 +18,13 @@
 ## Current Position
 
 **Active phase:** Phase 3 — Analytics
-**Active plan:** 03-01 complete (03-02 next)
+**Active plan:** 03-02 complete (03-03 next)
 **Status:** Phase 3 In Progress
 
 ```
 Phase 1 [Testing]       ██████████  Complete
 Phase 2 [EspoCRM]       ██████████  Complete
-Phase 3 [Analytics]     █░░░░░░░░░  In Progress (1/N plans done)
+Phase 3 [Analytics]     ██░░░░░░░░  In Progress (2/N plans done)
 ```
 
 **Open PRs:**
@@ -56,6 +56,8 @@ Phase 3 [Analytics]     █░░░░░░░░░  In Progress (1/N plans d
 | GTM placeholder ID GTM-XXXXXXX in index.html | Real ID requires GTM account; placeholder keeps build passing until ID is available |
 | window.dataLayer typed via DataLayerEvent interface | Avoids (window as any) casts in all component code; index signature allows arbitrary event properties |
 | Button onClick fires before anchor navigation, no preventDefault | dataLayer.push is synchronous; GTM tag fires before browser navigates; no preventDefault needed |
+| Defensive dataLayer push pattern | Silently no-ops when GTM is blocked by ad blockers; matches GTM's own snippet idiom; required for unit tests |
+| form_submit placed after submitLead() and before setFormState("success") | Strict ordering ensures event only tracks confirmed CRM success, never error path |
 | EspoCRM via serverless API proxy | Keeps API key server-side; no credentials exposed to browser |
 | Three separate PR branches per milestone | Clean review history; each feature independently mergeable |
 | Testing first, then CRM, then analytics | Foundation before features; analytics validates CRM conversions |
@@ -115,14 +117,12 @@ None.
 ## Session Continuity
 
 **Last session:** 2026-04-02
-**Stopped at:** Phase 3 plan 01 complete — GTM snippet added, dataLayer typed, Button onClick fixed
+**Stopped at:** Phase 3 plan 02 complete — cta_click and form_submit dataLayer events wired
 **Resume file:** None
 
 To resume work:
 
-1. Merge `feature/espocrm-integration` PR (#2) — Phase 2 work is ready
-2. Collect analytics IDs (GTM, GA4, Meta Pixel, LinkedIn) before planning Phase 3
-3. Run `/gsd:discuss-phase 3` or `/gsd:plan-phase 3` to begin analytics work
+1. Continue with plan 03-03 (GTM trigger configuration and GA4 event forwarding)
 
 ---
 
