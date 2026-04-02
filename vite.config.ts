@@ -5,6 +5,8 @@ import netlify from '@netlify/vite-plugin';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    // Inject non-VITE_ vars into process.env so Netlify function emulation can read them
+    Object.assign(process.env, env);
     return {
       server: {
         port: 3000,

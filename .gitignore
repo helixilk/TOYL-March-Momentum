@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment variable files with secrets
+.env
+
 # Local Netlify folder
 .netlify
