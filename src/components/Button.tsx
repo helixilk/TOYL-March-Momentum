@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} className={combinedClassName} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={combinedClassName} target="_blank" rel="noopener noreferrer" onClick={onClick}>
         {children}
       </a>
     );
