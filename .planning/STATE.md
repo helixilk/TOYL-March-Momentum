@@ -1,7 +1,7 @@
 # STATE — TOYL: The Other Yoga Life
 
 **Last updated:** 2026-04-02
-**Session:** Phase 3 plan 02 complete — cta_click and form_submit dataLayer events wired
+**Session:** Phase 3 plan 03 in progress — GTM-MDXCVHSJ deployed, awaiting human-verify checkpoint
 
 ---
 
@@ -18,7 +18,7 @@
 ## Current Position
 
 **Active phase:** Phase 3 — Analytics
-**Active plan:** 03-02 complete (03-03 next)
+**Active plan:** 03-03 in progress (awaiting human-verify checkpoint)
 **Status:** Phase 3 In Progress
 
 ```
@@ -54,6 +54,8 @@ Phase 3 [Analytics]     ██░░░░░░░░  In Progress (2/N plans d
 |----------|-----------|
 | GTM as tag management layer | Single code change; all future tags managed in dashboard without code deploys |
 | GTM placeholder ID GTM-XXXXXXX in index.html | Real ID requires GTM account; placeholder keeps build passing until ID is available |
+| GTM-MDXCVHSJ deployed to index.html | Real container ID provided by user; replaces placeholder in both head snippet and body noscript iframe |
+| LinkedIn Insight Tag skipped for now | Partner ID not available; can be added later via GTM dashboard without code deploy |
 | window.dataLayer typed via DataLayerEvent interface | Avoids (window as any) casts in all component code; index signature allows arbitrary event properties |
 | Button onClick fires before anchor navigation, no preventDefault | dataLayer.push is synchronous; GTM tag fires before browser navigates; no preventDefault needed |
 | Defensive dataLayer push pattern | Silently no-ops when GTM is blocked by ad blockers; matches GTM's own snippet idiom; required for unit tests |
@@ -110,19 +112,24 @@ None.
 
 - [x] Confirm hosting provider (Netlify) — resolved in Phase 2 plan 01
 - [x] Set ESPOCRM_API_KEY and ESPOCRM_BASE_URL — done, verified in Phase 2 plan 06
-- [ ] Collect GTM container ID, GA4 measurement ID, Meta Pixel ID, LinkedIn Partner ID before Phase 3 executes
+- [x] Collect GTM container ID, GA4 measurement ID, Meta Pixel ID — done (LinkedIn: skipped, add later via GTM dashboard)
+- [x] Deploy GTM-MDXCVHSJ to index.html — done (commit feb6d2d)
+- [ ] Configure GTM dashboard (GA4 + Meta Pixel tags) and publish container
+- [ ] Human-verify all tags fire end-to-end
 
 ---
 
 ## Session Continuity
 
 **Last session:** 2026-04-02
-**Stopped at:** Phase 3 plan 02 complete — cta_click and form_submit dataLayer events wired
+**Stopped at:** Plan 03-03 Task 2 complete — GTM-MDXCVHSJ deployed to index.html; paused at human-verify checkpoint
 **Resume file:** None
 
 To resume work:
 
-1. Continue with plan 03-03 (GTM trigger configuration and GA4 event forwarding)
+1. User completes GTM dashboard setup (GA4 + Meta Pixel tags + publish container)
+2. User verifies all tags fire via GTM Preview, GA4 Realtime, Meta Pixel Helper
+3. Type "approved" to resume — continuation agent will create 03-03-SUMMARY.md
 
 ---
 
