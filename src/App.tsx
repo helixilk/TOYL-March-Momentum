@@ -84,7 +84,7 @@ const App: React.FC = () => {
             <a href="#about" className="hover:text-viridian transition-colors">About</a>
             <a href="#benefits" className="hover:text-viridian transition-colors">Benefits</a>
             <a href="#waitlist" className="hover:text-viridian transition-colors">Join Waitlist</a>
-            <Button href={STRIPE_PLACEHOLDER_URL} className="px-5 py-2 text-xs">JOIN FOR $27</Button>
+            <Button href={STRIPE_PLACEHOLDER_URL} className="px-5 py-2 text-xs" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'nav' })}>JOIN FOR $27</Button>
           </div>
         </div>
       </nav>
@@ -110,7 +110,7 @@ const App: React.FC = () => {
               The 20-20 Program: 20-minute sessions for 20 workdays. Master your mobility with a daily ritual as essential as your morning coffee—designed for consistency, built for real life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap">
+              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'hero' })}>
                 <span>PRACTICE WITH US</span>
                 <ArrowRight className="w-5 h-5 shrink-0" />
               </Button>
@@ -391,7 +391,7 @@ const App: React.FC = () => {
             Don't let another month pass without prioritizing your mobility. Join our 20-20 program today for just $27 CAN.
           </p>
           <div className="flex flex-col items-center gap-6">
-            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap">SECURE MY SPOT — $27</Button>
+            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'final_cta' })}>SECURE MY SPOT — $27</Button>
             <p className="text-sm text-[#576574] font-medium italic">Weekday classes • Instructor-Led & On-Demand</p>
           </div>
         </div>
