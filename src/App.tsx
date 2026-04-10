@@ -391,7 +391,10 @@ const App: React.FC = () => {
             Don't let another month pass without prioritizing your mobility. Join our 20-20 program today for just $27 CAN.
           </p>
           <div className="flex flex-col items-center gap-6">
-            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'initiate_checkout', cta_location: 'final_cta', value: 27, currency: 'CAD' })}>SECURE MY SPOT — $27</Button>
+            <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap" onClick={() => {
+                (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'final_cta' });
+                (window.dataLayer = window.dataLayer || []).push({ event: 'begin_checkout', value: 27, currency: 'CAD' });
+              }}>SECURE MY SPOT — $27</Button>
             <p className="text-sm text-[#576574] font-medium italic">Weekday classes • Instructor-Led & On-Demand</p>
           </div>
         </div>

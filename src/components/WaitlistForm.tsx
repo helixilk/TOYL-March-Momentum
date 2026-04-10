@@ -24,7 +24,7 @@ export function WaitlistForm() {
     setFormState("loading");
     try {
       await submitLead({ firstName, lastName, email, ...utmParams });
-      (window.dataLayer = window.dataLayer || []).push({ event: 'form_submit', form_name: 'waitlist' });
+      (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead', form_name: 'waitlist' });
       setFormState("success");
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : "Submission failed. Please try again.");
