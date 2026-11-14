@@ -12,6 +12,9 @@ export const COLORS = {
 // Next session start date. Update this ONE line each session; it is used across the page.
 export const NEXT_SESSION_DATE = "Monday, November 23";
 
+export const LOGO_URL = "https://drive.google.com/thumbnail?id=13-VlkdL0_w7pGVJ186Orh_FoUCBtezos&sz=w1000";
+export const CONTACT_EMAIL = "helixilk@gmail.com";
+
 export const STRIPE_PLACEHOLDER_URL = "https://buy.stripe.com/4gM4gA6Va6Ky7Za3gqfQI00";
 
 export const PROGRAM_DETAILS = {

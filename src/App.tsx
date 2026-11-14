@@ -7,9 +7,7 @@ import SectionHeading from './components/SectionHeading';
 import FAQ from './components/FAQ';
 import LegalModal from './components/LegalModal';
 import WaitlistForm from './components/WaitlistForm';
-import { STRIPE_PLACEHOLDER_URL, NEXT_SESSION_DATE } from './constants';
-
-const LOGO_URL = "https://drive.google.com/thumbnail?id=13-VlkdL0_w7pGVJ186Orh_FoUCBtezos&sz=w1000";
+import { STRIPE_PLACEHOLDER_URL, NEXT_SESSION_DATE, LOGO_URL } from './constants';
 
 const App: React.FC = () => {
   const [isTermsOpen, setIsTermsOpen] = React.useState(false);

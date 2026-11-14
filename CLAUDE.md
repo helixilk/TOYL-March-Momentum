@@ -10,6 +10,7 @@ Marketing landing page for TOYL (The Other Yoga Life) 4-week mobility challenge.
 ## Each new session
 - Update `NEXT_SESSION_DATE` in `src/constants.tsx`. It drives the top badge, the "Next session" reminder section and the final call-to-action.
 - Buying ($27 via Stripe) reserves a spot in the next session. The free form is "Remind Me" (not a waitlist).
+- After paying, Stripe redirects buyers to `/thank-you?session_id={CHECKOUT_SESSION_ID}` (`src/components/ThankYou.tsx`, routed in `src/main.tsx`). That page sends one GA4 `purchase` event per Stripe session. It also uses `NEXT_SESSION_DATE`.
 
 ## Hosting & deploy
 - Netlify project `toyl-mm` (dashboard: https://app.netlify.com/projects/toyl-mm/overview), live at https://toyl-mm.netlify.app.
