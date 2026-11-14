@@ -83,7 +83,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "How do I reach out if I have any questions?",
-      answer: "All inquiries can be addressed to the contact email \"helixilk@gmail.com\" or via the social media links provided below. Responses will be provide within 24 hours."
+      answer: "All inquiries can be sent to \"helixilk@gmail.com\". You will receive a response within 24 hours."
     }
   ];
 

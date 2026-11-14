@@ -4,11 +4,10 @@ import { motion } from 'motion/react';
 import { Check, ArrowRight, Play, Calendar, Clock, Users } from 'lucide-react';
 import Button from './components/Button';
 import SectionHeading from './components/SectionHeading';
-import DailyIntention from './components/DailyIntention';
 import FAQ from './components/FAQ';
 import LegalModal from './components/LegalModal';
 import WaitlistForm from './components/WaitlistForm';
-import { STRIPE_PLACEHOLDER_URL } from './constants';
+import { STRIPE_PLACEHOLDER_URL, NEXT_SESSION_DATE } from './constants';
 
 const LOGO_URL = "https://drive.google.com/thumbnail?id=13-VlkdL0_w7pGVJ186Orh_FoUCBtezos&sz=w1000";
 
@@ -81,11 +80,12 @@ const App: React.FC = () => {
           </motion.div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-viridian-dark/80">
             <a href="#how-it-works" className="hover:text-viridian transition-colors">How it Works</a>
-            <a href="#about" className="hover:text-viridian transition-colors">About</a>
             <a href="#benefits" className="hover:text-viridian transition-colors">Benefits</a>
-            <a href="#waitlist" className="hover:text-viridian transition-colors">Join Waitlist</a>
-            <Button href={STRIPE_PLACEHOLDER_URL} className="px-5 py-2 text-xs" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'nav' })}>JOIN FOR $27</Button>
+            <a href="#faq-section" className="hover:text-viridian transition-colors">FAQ</a>
+            <a href="#waitlist" className="hover:text-viridian transition-colors">Next Session</a>
+            <Button href={STRIPE_PLACEHOLDER_URL} className="px-5 py-2 text-xs" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'nav' })}>RESERVE — $27</Button>
           </div>
+          <Button href={STRIPE_PLACEHOLDER_URL} className="md:hidden px-4 py-2 text-xs whitespace-nowrap" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'nav_mobile' })}>RESERVE — $27</Button>
         </div>
       </nav>
 
@@ -100,7 +100,7 @@ const App: React.FC = () => {
             className="space-y-8"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-viridian/10 text-viridian text-xs font-bold uppercase tracking-widest">
-              Available Now: The 20-20 Mobility Program
+              Next session starts {NEXT_SESSION_DATE}
             </div>
             <h1 className="text-6xl md:text-8xl font-serif text-viridian-dark leading-[1.1]">
               Find Your <br />
@@ -110,8 +110,8 @@ const App: React.FC = () => {
               The 20-20 Program: 20-minute sessions for 20 workdays. Master your mobility with a daily ritual as essential as your morning coffee—designed for consistency, built for real life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg flex items-center justify-center gap-2 whitespace-nowrap flex-nowrap" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'hero' })}>
-                <span>PRACTICE WITH US</span>
+              <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-base md:text-lg inline-flex! items-center justify-center gap-2 whitespace-nowrap flex-nowrap" onClick={() => (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'hero' })}>
+                <span>RESERVE MY SPOT</span>
                 <ArrowRight className="w-5 h-5 shrink-0" />
               </Button>
             </div>
@@ -189,11 +189,11 @@ const App: React.FC = () => {
             <div className="space-y-8 order-2 lg:order-1">
             <ul className="space-y-6">
               {[
-                "Do you feel stiff, tight and much less mobile ...all from not able to find the time for exercise? Is your body is crying out to reclaim that command?",
-                "Do you sometimes feel that a sudden 'unprepared for' movement, might results in 'straining' a muscle in your body? Have you become so 'risk averse, that you avoid unnecessary physical activity.",
-                "Have you been injured in your past, and are now 'healed'? Do you worry about hurting yourself again and have become overly cautious with your physical activity?",
-                "Are you 'older' person whose perceived expectation that your strength, mobility or balance is now limited or constrained by age? Do you also feel as if you are not ready to be \"put out to pasture\" yet?",
-                "Were you pretty 'Active' in your youth and remember that feeling where your muscles worked seamlessly together to do something physically awesome? Would you like to feel that way again?"
+                "Do you feel stiff, tight and much less mobile... all from not being able to find the time for exercise? Is your body crying out to reclaim that command?",
+                "Do you worry that a sudden, unexpected movement might strain a muscle? Have you become so risk-averse that you avoid unnecessary physical activity?",
+                "Have you been injured in the past and are now 'healed'? Do you worry about hurting yourself again, and have you become overly cautious with physical activity?",
+                "Are you an 'older' person who has come to expect that your strength, mobility or balance is now limited by age? Do you also feel you're not ready to be \"put out to pasture\" yet?",
+                "Were you pretty active in your youth? Do you remember that feeling when your muscles worked seamlessly together to do something physically awesome? Would you like to feel that way again?"
               ].map((text, i) => (
                 <motion.li 
                   key={i}
@@ -215,7 +215,7 @@ const App: React.FC = () => {
               viewport={{ once: true }}
               className="text-xl font-serif text-viridian-dark font-bold pt-4"
             >
-              If you identify with any of these descriptions above, then this program is for you.
+              If you identify with any of these, this program is for you.
             </motion.p>
           </div>
           <motion.div 
@@ -295,14 +295,14 @@ const App: React.FC = () => {
             {[
               { 
                 step: "Phase 1", 
-                title: "Greasing the Groove (12 mins)", 
+                title: "Greasing the Groove (11 mins)", 
                 science: "We use fluid, multi-planar repetition to strengthen neural pathways (Myelination).",
                 result: "Movement becomes 'easier' and more efficient. By moving through every plane of motion—twisting, prone, and supine—we lubricate the joints and hydrate the fascia, undoing the damage of the 'desk-chair' posture.",
                 icon: <Calendar className="w-6 h-6" />
               },
               { 
                 step: "Phase 2", 
-                title: "The Thermogenic Threshold (8 mins)", 
+                title: "The Thermogenic Threshold (7 mins)", 
                 science: "We increase the pace to reach a 'sheen of sweat,' signaling a metabolic shift.",
                 result: "We build functional strength around your Central Pillar (Core and Spine) and improve cardiovascular health without the systemic inflammation of long-duration sessions.",
                 icon: <Clock className="w-6 h-6" />
@@ -311,7 +311,7 @@ const App: React.FC = () => {
                 step: "Phase 3", 
                 title: "The Vagal Reset (2 mins)", 
                 science: "We use targeted breathwork to intentionally engage the Vagus Nerve.",
-                result: "You learn to 'hit the brakes' on stress. By restoring your heart rate in under 4 minutes, you are actively training your HRV (Heart Rate Variability)—the ultimate metric of a resilient leader.",
+                result: "You learn to 'hit the brakes' on stress. By bringing your heart rate back down in just two minutes, you are actively training your HRV (Heart Rate Variability)—the ultimate metric of a resilient leader.",
                 icon: <Play className="w-6 h-6" />
               }
             ].map((item, i) => (
@@ -355,13 +355,6 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Daily Motivation Component */}
-      <section className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <DailyIntention />
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section id="faq-section" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -375,8 +368,8 @@ const App: React.FC = () => {
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
             <SectionHeading
-              title="Join the Waitlist"
-              subtitle="Be the first to know when new sessions open. Drop your details below and we'll reach out with everything you need to get started."
+              title={`Next session starts ${NEXT_SESSION_DATE}`}
+              subtitle="Not ready to reserve yet? Leave your details and we'll send you a reminder before it starts."
             />
           </div>
           <WaitlistForm />
@@ -388,13 +381,13 @@ const App: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6 space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif text-viridian-dark">Ready to begin your <br /><span className="italic text-viridian">Practice?</span></h2>
           <p className="text-xl text-[#576574] leading-relaxed">
-            Don't let another month pass without prioritizing your mobility. Join our 20-20 program today for just $27 CAN.
+            Don't let another month pass without prioritizing your mobility. Reserve your spot in the next 20-20 session, starting {NEXT_SESSION_DATE}, for just $27 CAN.
           </p>
           <div className="flex flex-col items-center gap-6">
             <Button href={STRIPE_PLACEHOLDER_URL} variant="gradient" className="text-xl md:text-2xl px-8 md:px-12 py-4 md:py-6 whitespace-nowrap" onClick={() => {
                 (window.dataLayer = window.dataLayer || []).push({ event: 'cta_click', cta_location: 'final_cta' });
                 (window.dataLayer = window.dataLayer || []).push({ event: 'begin_checkout', value: 27, currency: 'CAD' });
-              }}>SECURE MY SPOT — $27</Button>
+              }}>RESERVE MY SPOT — $27</Button>
             <p className="text-sm text-[#576574] font-medium italic">Weekday classes • Instructor-Led & On-Demand</p>
           </div>
         </div>
@@ -419,7 +412,6 @@ const App: React.FC = () => {
                 <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-12 gap-y-4 text-white/70 text-sm">
                   <li><a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a></li>
                   <li><a href="#benefits" className="hover:text-white transition-colors">Benefits</a></li>
-                  <li><a href="#about" className="hover:text-white transition-colors">About TOYL</a></li>
                   <li><a href="#faq-section" className="hover:text-white transition-colors">FAQ</a></li>
                 </ul>
               </div>

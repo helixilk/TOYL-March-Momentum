@@ -13,7 +13,6 @@
     "test": "vitest run && playwright test"
   },
   "dependencies": {
-    "@google/genai": "^1.42.0",
     "@netlify/functions": "^5.1.5",
     "@netlify/vite-plugin": "^2.11.2",
     "@tailwindcss/postcss": "^4.2.0",

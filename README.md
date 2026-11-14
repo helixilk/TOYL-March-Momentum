@@ -15,6 +15,6 @@ View your app in AI Studio: https://ai.studio/apps/feb051c9-c08a-4861-8e60-bc7f0
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Copy `.env.local.example` to `.env.local` and fill in the EspoCRM values (needed only to test the waitlist form)
 3. Run the app:
    `npm run dev`

@@ -12,16 +12,24 @@ test.describe('Smoke', () => {
     expect(errors).toHaveLength(0);
   });
 
-  test('hero CTA "PRACTICE WITH US" is visible and links to Stripe', async ({ page }) => {
+  test('hero CTA "RESERVE MY SPOT" is visible and links to Stripe', async ({ page }) => {
     await page.goto('/');
-    const cta = page.getByRole('link', { name: /practice with us/i });
+    const cta = page.locator('header').getByRole('link', { name: /reserve my spot/i });
     await expect(cta).toBeVisible();
     await expect(cta).toHaveAttribute('href', STRIPE_PLACEHOLDER_URL);
   });
 
-  test('nav "JOIN FOR $27" is visible and links to Stripe', async ({ page }) => {
+  test('nav "RESERVE — $27" is visible and links to Stripe', async ({ page }) => {
     await page.goto('/');
-    const navCta = page.getByRole('link', { name: /join for \$27/i });
+    const navCta = page.locator('nav').getByRole('link', { name: /reserve — \$27/i });
+    await expect(navCta).toBeVisible();
+    await expect(navCta).toHaveAttribute('href', STRIPE_PLACEHOLDER_URL);
+  });
+
+  test('nav "RESERVE — $27" is visible on mobile (375px)', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    const navCta = page.locator('nav').getByRole('link', { name: /reserve — \$27/i });
     await expect(navCta).toBeVisible();
     await expect(navCta).toHaveAttribute('href', STRIPE_PLACEHOLDER_URL);
   });

@@ -19,9 +19,9 @@ test.describe('Waitlist form', () => {
     await page.fill('[id=email]', 'jane@example.com');
 
     // Submit
-    await page.getByRole('button', { name: /join the waitlist/i }).click();
+    await page.getByRole('button', { name: /remind me/i }).click();
 
     // Assert success state is visible
-    await expect(page.getByText(/you're on the list/i)).toBeVisible();
+    await expect(page.getByText(/you're all set/i)).toBeVisible();
   });
 });

@@ -22,10 +22,10 @@ describe('WaitlistForm', () => {
     expect(screen.getByLabelText(/first name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/last name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /join the waitlist/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /remind me/i })).toBeInTheDocument();
   });
 
-  it('shows "Joining..." and disables the button while fetch is in flight', async () => {
+  it('shows "Sending..." and disables the button while fetch is in flight', async () => {
     const user = userEvent.setup();
     let resolveFetch!: (value: Response) => void;
     const pendingFetch = new Promise<Response>((resolve) => {
@@ -38,9 +38,9 @@ describe('WaitlistForm', () => {
     await user.type(screen.getByLabelText(/first name/i), 'Jane');
     await user.type(screen.getByLabelText(/last name/i), 'Doe');
     await user.type(screen.getByLabelText(/email/i), 'jane@example.com');
-    await user.click(screen.getByRole('button', { name: /join the waitlist/i }));
+    await user.click(screen.getByRole('button', { name: /remind me/i }));
 
-    expect(screen.getByRole('button', { name: /joining\.\.\./i })).toBeDisabled();
+    expect(screen.getByRole('button', { name: /sending\.\.\./i })).toBeDisabled();
 
     // Resolve inside act so React can process the state update cleanly
     await act(async () => {
@@ -60,10 +60,10 @@ describe('WaitlistForm', () => {
     await user.type(screen.getByLabelText(/first name/i), 'Jane');
     await user.type(screen.getByLabelText(/last name/i), 'Doe');
     await user.type(screen.getByLabelText(/email/i), 'jane@example.com');
-    await user.click(screen.getByRole('button', { name: /join the waitlist/i }));
+    await user.click(screen.getByRole('button', { name: /remind me/i }));
 
     await waitFor(() =>
-      expect(screen.getByText(/you're on the list/i)).toBeInTheDocument()
+      expect(screen.getByText(/you're all set/i)).toBeInTheDocument()
     );
   });
 
@@ -79,7 +79,7 @@ describe('WaitlistForm', () => {
     await user.type(screen.getByLabelText(/first name/i), 'Jane');
     await user.type(screen.getByLabelText(/last name/i), 'Doe');
     await user.type(screen.getByLabelText(/email/i), 'jane@example.com');
-    await user.click(screen.getByRole('button', { name: /join the waitlist/i }));
+    await user.click(screen.getByRole('button', { name: /remind me/i }));
 
     await waitFor(() =>
       expect(screen.getByRole('alert')).toHaveTextContent('CRM error')
@@ -98,7 +98,7 @@ describe('WaitlistForm', () => {
     await user.type(screen.getByLabelText(/first name/i), 'Jane');
     await user.type(screen.getByLabelText(/last name/i), 'Doe');
     await user.type(screen.getByLabelText(/email/i), 'jane@example.com');
-    await user.click(screen.getByRole('button', { name: /join the waitlist/i }));
+    await user.click(screen.getByRole('button', { name: /remind me/i }));
 
     await waitFor(() =>
       expect(screen.getByRole('alert')).toHaveTextContent('Network failure')

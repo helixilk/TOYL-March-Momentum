@@ -15,7 +15,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  define: {
-    'process.env.GEMINI_API_KEY': JSON.stringify(''),
-  },
 });

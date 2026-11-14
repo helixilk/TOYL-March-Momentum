@@ -35,9 +35,9 @@ export function WaitlistForm() {
   if (formState === "success") {
     return (
       <div className="rounded-2xl bg-viridian/10 border border-viridian/20 p-8 text-center">
-        <h2 className="text-2xl font-bold text-viridian mb-3">You're on the list!</h2>
+        <h2 className="text-2xl font-bold text-viridian mb-3">You're all set!</h2>
         <p className="text-gray-700">
-          Thank you for joining. We'll be in touch with everything you need to get started.
+          Thank you. We'll send you a reminder before the next session starts.
         </p>
       </div>
     );
@@ -102,7 +102,7 @@ export function WaitlistForm() {
         aria-busy={formState === "loading" ? "true" : undefined}
         className="mt-2 rounded-full bg-viridian px-8 py-4 font-semibold text-white shadow-lg shadow-viridian/20 transition-all duration-300 hover:bg-viridian-dark active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {formState === "loading" ? "Joining..." : "Join the Waitlist"}
+        {formState === "loading" ? "Sending..." : "Remind Me"}
       </button>
     </form>
   );

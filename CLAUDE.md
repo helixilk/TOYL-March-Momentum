@@ -1,12 +1,15 @@
 # TOYL — March Momentum landing page
 
-Marketing landing page for TOYL (The Other Yoga Life) 4-week mobility challenge. Its job: get visitors onto the waitlist, which creates a Lead in EspoCRM and starts the email nurture sequence.
+Marketing landing page for TOYL (The Other Yoga Life) 4-week mobility challenge. Its job: sell a $27 spot in the next session (Stripe), with a free "Remind Me" form as a fallback that creates a Lead in EspoCRM.
 
 ## Stack
 - React 19 + TypeScript + Vite 6 + Tailwind v4, single-page app (`src/App.tsx` holds all sections).
 - Components in `src/components/`; app-wide literals in `src/constants.tsx`.
 - Waitlist: `WaitlistForm.tsx` → `src/services/waitlistService.ts` → Netlify function `netlify/functions/submit-lead.mts` → EspoCRM `POST /api/v1/Lead`.
-- "Daily intention" widget calls Gemini (`src/services/geminiService.ts`) with a fallback when it fails.
+
+## Each new session
+- Update `NEXT_SESSION_DATE` in `src/constants.tsx`. It drives the top badge, the "Next session" reminder section and the final call-to-action.
+- Buying ($27 via Stripe) reserves a spot in the next session. The free form is "Remind Me" (not a waitlist).
 
 ## Hosting & deploy
 - Netlify project `toyl-mm` (dashboard: https://app.netlify.com/projects/toyl-mm/overview), live at https://toyl-mm.netlify.app.
@@ -25,7 +28,7 @@ Marketing landing page for TOYL (The Other Yoga Life) 4-week mobility challenge.
 - CI (`.github/workflows/test.yml`) runs unit + E2E tests on every PR and on pushes to `main`.
 
 ## Known issues / watch-outs
-- `vite.config.ts` defines `process.env.GEMINI_API_KEY` into the client bundle. If a real key is ever set at build time, it becomes public. As of 2026-11-13 the live bundle contains no key. Move Gemini behind a Netlify function before adding one.
+- Never put API keys in client code or `VITE_` vars. Anything secret goes through a Netlify function. (The old Gemini "Daily Intention" widget was removed on 2026-11-13 for this reason, and because it was broken.)
 - EspoCRM field quirks: use `emailAddress` (not `email`) and `source: "Web Site"` (with the space).
 
 ## History

@@ -9,6 +9,9 @@ export const COLORS = {
   bgViridian: '#F1F7F5'
 };
 
+// Next session start date. Update this ONE line each session; it is used across the page.
+export const NEXT_SESSION_DATE = "Monday, November 23";
+
 export const STRIPE_PLACEHOLDER_URL = "https://buy.stripe.com/4gM4gA6Va6Ky7Za3gqfQI00";
 
 export const PROGRAM_DETAILS = {

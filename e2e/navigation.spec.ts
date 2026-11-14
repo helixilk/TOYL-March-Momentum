@@ -10,9 +10,9 @@ test.describe('Navigation', () => {
     await expect(link).toHaveAttribute('href', '#how-it-works');
   });
 
-  test('"About" nav link points to correct section', async ({ page }) => {
-    const link = page.locator('nav').getByRole('link', { name: /about/i });
-    await expect(link).toHaveAttribute('href', '#about');
+  test('"FAQ" nav link points to correct section', async ({ page }) => {
+    const link = page.locator('nav').getByRole('link', { name: /^faq$/i });
+    await expect(link).toHaveAttribute('href', '#faq-section');
   });
 
   test('"Benefits" nav link points to correct section', async ({ page }) => {
@@ -28,7 +28,6 @@ test.describe('Navigation', () => {
   test('footer links point to correct sections', async ({ page }) => {
     await expect(page.locator('footer').getByRole('link', { name: /how it works/i })).toHaveAttribute('href', '#how-it-works');
     await expect(page.locator('footer').getByRole('link', { name: /benefits/i })).toHaveAttribute('href', '#benefits');
-    await expect(page.locator('footer').getByRole('link', { name: /about toyl/i })).toHaveAttribute('href', '#about');
     await expect(page.locator('footer').getByRole('link', { name: /faq/i })).toHaveAttribute('href', '#faq-section');
   });
 });
