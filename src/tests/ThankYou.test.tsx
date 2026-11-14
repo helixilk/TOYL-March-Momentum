@@ -23,11 +23,17 @@ describe('ThankYou page', () => {
 
   it('sends one purchase event per Stripe session', () => {
     const storage = memoryStorage();
-    expect(trackPurchase('?session_id=cs_test_123', storage)).toBe(true);
-    expect(trackPurchase('?session_id=cs_test_123', storage)).toBe(false); // refresh
+    expect(trackPurchase('?session_id=cs_live_123', storage)).toBe(true);
+    expect(trackPurchase('?session_id=cs_live_123', storage)).toBe(false); // refresh
     const purchases = window.dataLayer.filter((e) => e.event === 'purchase');
     expect(purchases).toHaveLength(1);
-    expect(purchases[0]).toMatchObject({ transaction_id: 'cs_test_123', value: 27, currency: 'CAD' });
+    expect(purchases[0]).toMatchObject({ transaction_id: 'cs_live_123', value: 27, currency: 'CAD' });
+  });
+
+  it('labels Stripe test-mode orders as test_purchase, never purchase', () => {
+    expect(trackPurchase('?session_id=cs_test_abc', memoryStorage())).toBe(true);
+    expect(window.dataLayer.filter((e) => e.event === 'purchase')).toHaveLength(0);
+    expect(window.dataLayer.filter((e) => e.event === 'test_purchase')).toHaveLength(1);
   });
 
   it('does not send a purchase event without a real session id', () => {

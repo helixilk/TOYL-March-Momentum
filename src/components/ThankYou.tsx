@@ -20,8 +20,11 @@ export function trackPurchase(search: string, storage: Pick<Storage, 'getItem' |
     // storage blocked: still send the event once for this page view
   }
 
+  // Stripe test-mode orders (cs_test_...) must never count as real sales in GA4.
+  const isTest = sessionId.startsWith('cs_test_');
+
   (window.dataLayer = window.dataLayer || []).push({
-    event: 'purchase',
+    event: isTest ? 'test_purchase' : 'purchase',
     transaction_id: sessionId,
     value: 27,
     currency: 'CAD',
